@@ -6,6 +6,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <title>Document</title>
+    <style>
+      
+    </style>
 </head>
 <body>
 <section class="flex flex-col md:flex-row h-screen items-center">
