@@ -57,7 +57,7 @@ foreach($results as $result)
                             </div>
                             <div class="col-3">
                                 <div class="top-bar-item" style="margin-top:10px">
-                                    <a class="btn btn-custom" href="signup.php">Sign up</a>
+                                    <a class="btn btn-custom" href="signin.php">Sign in</a>
                                 </div>
                             </div>
                         </div>
