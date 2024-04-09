@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2021 at 07:01 PM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.2.19
+-- Generation Time: Apr 08, 2024 at 02:47 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,7 +32,7 @@ CREATE TABLE `admin` (
   `UserName` varchar(100) DEFAULT NULL,
   `Password` varchar(100) DEFAULT NULL,
   `updationDate` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admin`
@@ -41,6 +40,25 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `UserName`, `Password`, `updationDate`) VALUES
 (1, 'admin', 'f925916e2754e5e03f75dd58a5733251', '2020-12-10 11:18:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `authuser`
+--
+
+CREATE TABLE `authuser` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `authuser`
+--
+
+INSERT INTO `authuser` (`id`, `name`, `password`) VALUES
+(5, 'sathish', '123456');
 
 -- --------------------------------------------------------
 
@@ -64,7 +82,7 @@ CREATE TABLE `tblcarwashbooking` (
   `txnNumber` varchar(120) DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT current_timestamp(),
   `lastUpdationDate` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tblcarwashbooking`
@@ -93,7 +111,7 @@ CREATE TABLE `tblenquiry` (
   `Description` mediumtext DEFAULT NULL,
   `PostingDate` timestamp NULL DEFAULT current_timestamp(),
   `Status` int(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tblenquiry`
@@ -116,7 +134,7 @@ CREATE TABLE `tblpages` (
   `openignHrs` varchar(255) DEFAULT NULL,
   `phoneNumber` bigint(20) DEFAULT NULL,
   `emailId` varchar(120) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tblpages`
@@ -138,7 +156,7 @@ CREATE TABLE `tblwashingpoints` (
   `washingPointAddress` varchar(255) DEFAULT NULL,
   `contactNumber` bigint(20) DEFAULT NULL,
   `creationDate` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tblwashingpoints`
@@ -148,6 +166,31 @@ INSERT INTO `tblwashingpoints` (`id`, `washingPointName`, `washingPointAddress`,
 (1, 'XYZ Car Washing Point', 'ABC Street New Delhi 1110001', 1236547890, '2021-12-13 16:21:20'),
 (2, 'ABC Car Washing Point', 'A3263 Sector 1- Noida 201301', 98745463210, '2021-12-13 16:22:38'),
 (3, ' Matrix Car washing Point ', 'H911 Indira Puram Ghaziabad 201017 UP', 4582365419, '2021-12-13 16:24:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userinfo`
+--
+
+CREATE TABLE `userinfo` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phno` int(11) NOT NULL,
+  `dob` date NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `userinfo`
+--
+
+INSERT INTO `userinfo` (`id`, `name`, `email`, `phno`, `dob`, `gender`, `address`, `password`) VALUES
+(4, 'sathish', 'sathish@gmail.com', 2147483647, '2002-12-28', 'male', '13/34 mid street atp', '123456'),
+(5, 'sathish', 'sathish@gmail.com', 2147483647, '2002-12-28', 'male', '13/34 mid street atp', '123456');
 
 --
 -- Indexes for dumped tables
@@ -185,6 +228,12 @@ ALTER TABLE `tblwashingpoints`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `userinfo`
+--
+ALTER TABLE `userinfo`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -216,6 +265,12 @@ ALTER TABLE `tblpages`
 -- AUTO_INCREMENT for table `tblwashingpoints`
 --
 ALTER TABLE `tblwashingpoints`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `userinfo`
+--
+ALTER TABLE `userinfo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --

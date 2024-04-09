@@ -142,7 +142,8 @@
       <form action="signupcheck.php" class="form" method="post">
         <div class="input-box">
             <label>Full Name</label>
-            <input type="text" name="name" placeholder="Enter full name" required />
+            <label style="display:none;color:red;" id="exist">username already exist! </label>
+            <input type="text" name="name" id="usernameInput" placeholder="Enter full name" required />
         </div>
 
         <div class="input-box">
@@ -201,4 +202,52 @@
       Already have account ? <a href="signin.php">login here</a>
     </section>
   </body>
+
+  <script>
+    // Function to fetch data using fetch API
+function fetchData(username) {
+    // URL of your PHP endpoint with username as query parameter
+    var url = 'http://localhost/car-wash/cwms/apis/api.php?name=' + encodeURIComponent(username);
+    var name =document.getElementById('exist');
+
+    // Fetch data from the server
+    fetch(url)
+    .then(function(response) {
+        // Check if response is successful
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        // Parse JSON response
+        return response.json();
+    })
+    .then(function(data) {
+        // console.log(data);
+
+        if (data.exists) {
+            console.log('Username exists in the database.');
+            name.style.display = "block";
+        } else {
+            console.log('Username does not exist in the database.');
+            name.style.display = "none";
+        }
+    })
+    .catch(function(error) {
+        // Handle errors
+        console.error('There was a problem with the fetch operation:', error);
+    });
+}
+
+// Get input field by id
+var usernameInput = document.getElementById('usernameInput');
+
+// Attach event listener for the blur event
+usernameInput.addEventListener('blur', function(event) {
+    // Get the value of the input field
+    var username = event.target.value;
+    console.log(username);
+    // Call fetchData function with the username value
+    fetchData(username);
+});
+
+  </script>
 </html>
