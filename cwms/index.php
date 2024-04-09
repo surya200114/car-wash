@@ -1,4 +1,5 @@
 <?php //error_reporting(0);
+session_start();
 include('includes/config.php'); 
 
 if(isset($_POST['book']))
@@ -38,7 +39,13 @@ else
 
 }
 
-?>
+if(!isset($_SESSION['name'])){
+    header('location:signin.php');
+}
+else{ 
+    ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -392,3 +399,4 @@ foreach($results as $result)
     </body>
 </html>
 
+<?php } ?>

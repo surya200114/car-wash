@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $servername = 'localhost';
 $username = 'root';
 $password = '';
@@ -9,7 +11,7 @@ $phno = $_POST['phno'];
 $dob = $_POST['dob'];
 $gender = $_POST['gender'];
 $address = $_POST['address'];
-$pass = $_POST['password'];
+$pass = md5($_POST['password']);
 
 
 
@@ -34,6 +36,11 @@ try {
     $stmt->bindParam(':password' , $pass);
     $stmt->execute();
 
+    if(isset($name)){
+        $_SESSION['name'] = $name;
+        echo '<script>alert("' . $_SESSION['name'] . '"); </script>';
+
+    }
     header("Location: index.php");
     exit();
 } catch(PDOException $e) {
