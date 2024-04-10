@@ -24,15 +24,15 @@
 
     <h1 class="text-xl md:text-2xl font-bold leading-tight mt-12">Log in to your account</h1>
 
-    <form class="mt-6" action="validate.php" method="POST">
+    <form class="mt-6" action="authenticate.php" method="POST">
       <div>
         <label class="block text-gray-700">Email Address</label>
-        <input type="email" name="mail" id="" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
+        <input type="text" name="mail" placeholder="Enter Email Address" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none" autofocus autocomplete required>
       </div>
 
       <div class="mt-4">
         <label class="block text-gray-700">Password</label>
-        <input type="password" name="pass" id="" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+        <input type="password" name="pass" placeholder="Enter Password" minlength="6" class="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
               focus:bg-white focus:outline-none" required>
       </div>
 

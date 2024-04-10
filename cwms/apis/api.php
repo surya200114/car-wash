@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     $sql = 'SELECT name FROM authuser where name = :name';
     $query = $conn->prepare($sql);
-    $query->bindParam(':name', $user, PDO::PARAM_STR);
+    $query->bindParam(':name', $user);
 
     $query->execute();
 
