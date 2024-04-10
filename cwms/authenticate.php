@@ -35,7 +35,7 @@
 
         if($user) {
             // Passwords match, set session and redirect
-            $_SESSION['alogin'] = $name;
+            $_SESSION['user'] = $name;
             echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
             exit(); // Stop further execution after redirect
         } else {
@@ -43,7 +43,5 @@
         }
      
     }
-
-    echo "<script>alert('Welcome, " . ($_SESSION['user'] ?? "Guest") . "');</script>";
 
 ?>

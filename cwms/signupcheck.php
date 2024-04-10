@@ -41,7 +41,7 @@ try {
         echo '<script>alert("' . $_SESSION['name'] . '"); </script>';
 
     }
-    header("Location: index.php");
+    header("Location: signin.php");
     exit();
 } catch(PDOException $e) {
     echo "Error: " . $e->getMessage();

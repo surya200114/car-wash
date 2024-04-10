@@ -55,11 +55,30 @@ foreach($results as $result)
                                     
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="top-bar-item" style="margin-top:10px">
-                                    <a class="btn btn-custom" href="signin.php">Sign in</a>
+                            <?php
+                            if(!isset($_SESSION['user'])) {
+                            ?>
+                                <div class="col-3">
+                                    <div class="top-bar-item" style="margin-top:10px">
+                                        <a class="btn btn-custom" href="signin.php">Sign in</a>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php
+                            } else {
+                            ?>
+                                <div class="col-3">
+                                    <div class="top-bar-item">
+                                        <div class="">
+                                            <img src="img/profile.png" alt="" srcset="">
+                                        </div>
+                                        <div class="top-bar-text">
+                                            <h3><?php echo $_SESSION['user']; ?></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 <?php } ?>
@@ -95,3 +114,6 @@ foreach($results as $result)
             </div>
         </div>
         <!-- Nav Bar End -->
+
+
+            

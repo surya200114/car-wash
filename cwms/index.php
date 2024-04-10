@@ -2,6 +2,8 @@
 session_start();
 include('includes/config.php'); 
 
+
+
 if(isset($_POST['book']))
 {
 $ptype=$_POST['packagetype'];
@@ -39,11 +41,12 @@ else
 
 }
 
-if(!isset($_SESSION['name'])){
-    header('location:signin.php');
-}
-else{ 
-    ?>
+
+// if(!isset($_SESSION['user'])){
+//     header('location:signin.php');
+// }
+// else{ 
+//     ?>
 
 
 
@@ -399,4 +402,3 @@ foreach($results as $result)
     </body>
 </html>
 
-<?php } ?>
