@@ -1,4 +1,24 @@
-        <!-- Top Bar Start -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+     
+   
+
+<!-- side bar -->
+<div id="sidebar" class="w3-sidebar w3-bar-block w3-card" style="width:25%;right:0;z-index:2;display:none">
+    <h3 class="w3-bar-item">To Change</h3>
+    <button onclick="closeSidebar()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+    <a href="details.php" class="w3-bar-item w3-button">Change Details</a>
+    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
+
+<!-- side bar  -->
+
+
+
+
+
+
+     <!-- Top Bar Start -->
         <div class="top-bar">
             <div class="container">
                 <div class="row align-items-center">
@@ -55,16 +75,16 @@ foreach($results as $result)
                                     
                                 </div>
                             </div>
-                            <?php
-                            if(!isset($_SESSION['user'])) {
+                         <?php
+                        //    if(!isset($_SESSION['user'])) {
                             ?>
-                                <div class="col-3">
+                                <!-- <div class="col-3">
                                     <div class="top-bar-item" style="margin-top:10px">
                                         <a class="btn btn-custom" href="signin.php">Sign in</a>
                                     </div>
-                                </div>
+                                </div> -->
                             <?php
-                            } else {
+                        //    } else {
                             ?>
                                 <div class="col-3">
                                     <div class="top-bar-item">
@@ -72,12 +92,13 @@ foreach($results as $result)
                                             <img src="img/profile.png" alt="" srcset="">
                                         </div>
                                         <div class="top-bar-text">
-                                            <h3><?php echo $_SESSION['user']; ?></h3>
+                                            <!-- <h3>navin</h3> -->
+                                            <button style="border:none" onclick="openSidebar()"><h3>navin</h3></button>
                                         </div>
                                     </div>
                                 </div>
                             <?php
-                            }
+                         //   }
                             ?>
                         </div>
                     </div>
@@ -116,4 +137,16 @@ foreach($results as $result)
         <!-- Nav Bar End -->
 
 
-            
+  
+   
+        <script>
+    // Function to open the sidebar
+    function openSidebar() {
+        document.getElementById("sidebar").style.display = "block";
+    }
+
+    // Function to close the sidebar
+    function closeSidebar() {
+        document.getElementById("sidebar").style.display = "none";
+    }
+</script>

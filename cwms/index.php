@@ -56,7 +56,7 @@ else
         <meta charset="utf-8">
         <title>Car Wash management System | Home Page</title>
 
-
+       <link rel="stylesheet" href="side.css">
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
 
